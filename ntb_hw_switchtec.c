@@ -1931,7 +1931,7 @@ static const struct attribute_group switchtec_ntb_device_group = {
 	.attrs = switchtec_ntb_device_attrs,
 };
 
-static int switchtec_ntb_add(struct device *dev)
+static int switchtec_ntb_add(struct device *dev, struct class_interface *class_intf)
 {
 	struct switchtec_dev *stdev = to_stdev(dev);
 	struct switchtec_ntb *sndev;
@@ -2007,7 +2007,7 @@ free_and_exit:
 	return rc;
 }
 
-static void switchtec_ntb_remove(struct device *dev)
+static void switchtec_ntb_remove(struct device *dev, struct class_interface *class_intf)
 {
 	struct switchtec_dev *stdev = to_stdev(dev);
 	struct switchtec_ntb *sndev = stdev->sndev;
